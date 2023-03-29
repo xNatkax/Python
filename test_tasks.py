@@ -81,7 +81,7 @@ def test_squares(got, expected):
         (["alPha", "bEta", "gamma", "alE", "alicja", "mama"], []),
     ],
 )
-def list_of_strings_with_capital_letter(got, expected):
+def test_list_of_strings_with_capital_letter(got, expected):
     assert list_of_strings_with_capital_letter(got) == expected
 
 
@@ -89,11 +89,11 @@ def list_of_strings_with_capital_letter(got, expected):
     "got, expected",
     [
         ([1, 2, 3, 4, 5, 6, 7, 8, 9], [3, 6, 9]),
-        ([2, 4, 6, 8], []),
+        ([2, 4, 6, 8], [6]),
         ([], []),
     ],
 )
-def list_of_numbers_divisible_by_3(got, expected):
+def test_list_of_numbers_divisible_by_3(got, expected):
     assert list_of_numbers_divisible_by_3(got) == expected
 
 
@@ -105,5 +105,5 @@ def list_of_numbers_divisible_by_3(got, expected):
         (([1, 2], []), []),
     ],
 )
-def lists_to_tuple_list(got, expected):
-    assert lists_to_tuple_list(got) == expected
+def test_lists_to_tuple_list(got, expected):
+    assert lists_to_tuple_list(*got) == expected
