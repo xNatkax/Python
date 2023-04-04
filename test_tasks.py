@@ -1,13 +1,13 @@
 import pytest
 
 from tasks import (
-    even_numbers_sum,
     count_word_in_sentence,
-    unique_values_list,
-    squares,
-    list_of_strings_with_capital_letter,
+    even_numbers_sum,
     list_of_numbers_divisible_by_3,
+    list_of_strings_with_capital_letter,
     lists_to_tuple_list,
+    squares,
+    unique_values_list,
 )
 
 
@@ -40,6 +40,7 @@ def test_even_numbers_sum(got, expected):
         ),
         ("", {}),
         ("  ", {}),
+        ("test test! test, test?", {"test": 4}),
     ],
 )
 def test_count_word_in_sentence(got, expected):
@@ -79,6 +80,7 @@ def test_squares(got, expected):
         (["alpha", "beta", "gamma", "ale", "alicja", "mama"], []),
         ([], []),
         (["alPha", "bEta", "gamma", "alE", "alicja", "mama"], []),
+        (["", ""], []),
     ],
 )
 def test_list_of_strings_with_capital_letter(got, expected):
@@ -100,7 +102,7 @@ def test_list_of_numbers_divisible_by_3(got, expected):
 @pytest.mark.parametrize(
     "got, expected",
     [
-        (([2, 3, 4], [6, 7, 8]), [(2, 6), (3, 7), (4, 8)]),
+        (([2, 3, 4], [6, 7, 8]), [12, 21, 32]),
         (([], []), []),
         (([1, 2], []), []),
     ],

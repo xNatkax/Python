@@ -7,13 +7,35 @@ class Person:
     """
 
     def __init__(self, name, age):
-        self.name = name
-        self.age = age
+        self._name = name
+        self._age = age
 
     def greet(self):
         print(f"Greetings from Poland, {self.name}! You are {self.age} years old!")
 
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if value == "":
+            raise ValueError("Name cannot be an empty string!")
+        self._name = value
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        if value <= 0:
+            raise ValueError("Age cannot be less than 0!")
+        self._age = value
+
 
 if __name__ == "__main__":
-    dawid = Person("Dawid", 30)
-    dawid.greet()
+    john = Person("John", 55)
+    john.greet()
+    # john.name = ""
+    # john.age = 0
